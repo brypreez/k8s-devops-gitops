@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"name":"nginx-gitops-app","namespace":"argocd"},"spec":{"destination":{"namespace":"default","server":"https://kubernetes.default.svc"},"project":"default","source":{"path":"apps/nginx","repoURL":"https://github.com/brypreez/k8s-homelab-gitops.git","targetRevision":"HEAD"},"syncPolicy":{"automated":{"prune":true,"selfHeal":true}}}}
+  name: nginx-gitops-app
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: apps/nginx
+    repoURL: https://github.com/brypreez/k8s-homelab-gitops.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
