@@ -6,11 +6,11 @@ metadata:
 spec:
   project: default
   source:
-    chart: longhorn
-    repoURL: https://charts.longhorn.io
-    targetRevision: 1.7.2
+    repoURL: 'https://github.com/your-repo/k8s-homelab-gitops.git' # your repo here
+    targetRevision: HEAD
+    path: charts/longhorn # or wherever your chart/manifest lives
   destination:
-    server: https://kubernetes.default.svc
+    server: 'https://kubernetes.default.svc'
     namespace: longhorn-system
   syncPolicy:
     automated:
@@ -18,3 +18,4 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - SkipHooks=true  # <--- THIS MUST BE HERE
