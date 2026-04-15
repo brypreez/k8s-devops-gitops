@@ -1,47 +1,86 @@
-# K8s Home Lab GitOps
+# k8s-homelab-gitops
 
-This repository is an active DevOps/GitOps testing environment. It is used to simulate enterprise SDLC workflows, including JIRA-tracked feature branches, security patching, and automated storage orchestration. Expect frequent breaking changes as I iterate on cluster resilience.
+![GitOps](https://img.shields.io/badge/GitOps-ArgoCD-blue?style=flat-square&logo=argocd)
+![Infrastructure](https://img.shields.io/badge/Infrastructure-Proxmox-orange?style=flat-square&logo=proxmox)
+![Storage](https://img.shields.io/badge/Storage-Longhorn-brightgreen?style=flat-square&logo=linux)
 
-🛠 Project Overview
-A declarative Kubernetes management lab focused on the App-of-Apps pattern. This project bridges the gap between infrastructure as code and application lifecycle management.
+**Infrastructure & Platform Engineering — GitOps Testing & Storage Resilience**
 
-GitOps Pattern: App-of-Apps for centralized cluster management.
+---
 
-Storage: Automated Longhorn orchestration with Helm.
+### 🧪 Sandbox
+> **Current Sprint:** Resilience Testing. This repository is a live-fire sandbox for testing stateful applications in a Kubernetes environment. Expect frequent commits as I simulate failures and recovery procedures.
 
-Networking: MetalLB LoadBalancer integration and Service optimization.
+---
 
-Workflow: Conventional Commits with simulated JIRA-linkage (feat, fix, chore).
+### 🏗 Infrastructure Architecture
+This cluster is architected for physical fault tolerance, utilizing a 3-node HA control plane hosted on Proxmox VE.
 
-💻 Local Management Environment
-The cluster is managed through a hybrid, cross-platform workstation setup connected via a Tailscale mesh for secure, remote access.
+| Layer | Component | Specification |
+| :--- | :--- | :--- |
+| **Hypervisor** | Proxmox VE | 3-Node High-Availability Cluster |
+| **Orchestration** | Kubernetes | v1.32+ (High-Availability Control Plane) |
+| **Storage** | **Longhorn** | Distributed block storage with cross-node replication |
+| **Networking** | **MetalLB** | Layer 2 LoadBalancer for local IP orchestration |
+| **GitOps** | **ArgoCD** | App-of-Apps pattern for declarative state management |
 
-Node 1: Windows Powerhouse
-Hardware: ASUS Zenbook 14 OLED (Windows 11)
+---
 
-Environment: WSL2 (Ubuntu)
+### 💻 Hybrid Management Mesh
+I utilize a cross-platform workflow to manage the cluster from anywhere, ensuring infrastructure management isn't tied to a single physical desk.
 
-Key Tools: kubectl, helm, k9s, git
+> [!IMPORTANT]
+> **Tailscale Integration:** All nodes (including the Zenbook and MacBook) are part of a private Tailscale mesh, allowing for secure `kubectl` access without exposing management ports to the internet.
 
-Node 2: Ultra-Portable Management
-Hardware: MacBook Air (M4 Chip)
+| Workstation | OS / Arch | Role | Primary Tooling |
+| :--- | :--- | :--- | :--- |
+| **ASUS Zenbook 14 OLED** | Windows 11 (WSL2) | **Primary Engineering** | `kubectl`, `helm`, `k9s`, `ansible` |
+| **MacBook Air (M4)** | macOS (Native) | **Portable Ops / ARM64** | `brew`, `terraform`, `tailscale` |
 
-Environment: Native macOS + Homebrew
+---
 
-Key Tools: brew, tailscale, terraform
+### 🛠 GitOps Workflow & JIRA Integration
+* **Pattern:** **App-of-Apps** — A root application manages all sub-apps, ensuring 100% of the cluster state is in Git.
+* **Standards:** **Conventional Commits** (`feat:`, `fix:`, `chore:`) are strictly enforced.
+* **Traceability:** Simulated **JIRA linkage** (e.g., `JIRA-101`) is used in commit messages to track feature implementation and security patches.
 
-Connectivity
-Tailscale: Provides a flat, secure network overlay across the Zenbook, MacBook, and the Kubernetes nodes, allowing for kubectl access regardless of physical location.
+---
 
-🚀 Key Learning Milestones
-[x] Initial Cluster Bootstrap
+### 🚀 Key Technical Milestones
 
-[x] Implement Nginx with MetalLB LoadBalancing
+| Milestone | Status | Details |
+| :--- | :--- | :--- |
+| **Cluster Bootstrap** | ✅ Done | 3-node HA setup with Proxmox VM isolation. |
+| **Storage Resilience** | ✅ Done | Resolved Longhorn pre-upgrade deadlocks via `SkipHooks`. |
+| **Security Drills** | ✅ Done | Simulated JIRA-102: Rapid rollback of Nginx patches. |
+| **Secrets Management** | ✅ Done | Integrated External Secrets Operator (ESO). |
+| **Failover Testing** | 🚧 WIP | Testing Longhorn volume rebuilding during node loss. |
 
-[x] Longhorn Integration: Resolved pre-upgrade job deadlocks and repository URL sync issues.
+---
 
-[x] Rollback Drills: Successfully simulated security patch rollbacks and re-applications (JIRA-102).
+### 🧠 Post-Mortem Highlights
 
-[X] External Secrets Operator integration
+> **Problem:** Longhorn Pre-Upgrade Job Deadlock.
+> **Root Cause:** Stale hooks from previous Helm releases prevented the controller from reconciling.
+> **Resolution:** Implemented `ServerSideApply=true` and utilized `SkipHooks` in the ArgoCD sync policy to allow the state to bypass the deadlock.
 
-[ ] Multi-node HA failover testing (In Progress)
+---
+
+### 🛠 Tech Stack Summary
+* **Hypervisor:** Proxmox VE
+* **Orchestration:** K8s / ArgoCD
+* **Storage:** Longhorn
+* **Networking:** MetalLB / Tailscale
+* **Observability:** kube-prometheus-stack (Planned)
+
+---
+
+### 🌐 Infrastructure Ecosystem
+This repository is part of a wider private cloud architecture. Cross-project dependencies and global configurations are managed across the following repositories:
+
+| Repository | Focus | Connection to this Lab |
+| :--- | :--- | :--- |
+| **[homelab](https://github.com/brypreez/homelab)** | **Primary Portfolio** | The "Production" environment and source of truth for global Ansible/Terraform modules. |
+| **[Security-Sentinel](https://github.com/brypreez/Security-Sentinel)** | **Blue Team / SIEM** | Orchestrates the Wazuh/XDR agents that monitor this cluster's control plane. |
+
+---
