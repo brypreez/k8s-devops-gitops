@@ -1,8 +1,8 @@
 # k8s-homelab-gitops
 
-![GitOps](https://img.shields.io/badge/GitOps-ArgoCD-blue?style=flat-square&logo=argocd)
-![Infrastructure](https://img.shields.io/badge/Infrastructure-Proxmox-orange?style=flat-square&logo=proxmox)
-![Storage](https://img.shields.io/badge/Storage-Longhorn-brightgreen?style=flat-square&logo=linux)
+![GitOps](https://img.shields.io/badge/GitOps-ArgoCD-blue?style=flat&logo=argocd)
+![Infrastructure](https://img.shields.io/badge/Infrastructure-Proxmox-orange?style=flat&logo=proxmox)
+![Storage](https://img.shields.io/badge/Storage-Longhorn-brightgreen?style=flat&logo=linux)
 
 **Infrastructure & Platform Engineering — GitOps Testing & Storage Resilience**
 
