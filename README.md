@@ -1,4 +1,4 @@
-# k8s-homelab-gitops
+# k8s-devops-gitops
 
 ![GitOps](https://img.shields.io/badge/GitOps-ArgoCD-blue?style=flat&logo=argocd)
 ![Infrastructure](https://img.shields.io/badge/Infrastructure-Proxmox-orange?style=flat&logo=proxmox)
