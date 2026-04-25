@@ -71,7 +71,7 @@ I utilize a cross-platform workflow to manage the cluster from anywhere, ensurin
 * **Orchestration:** K8s / ArgoCD
 * **Storage:** Longhorn
 * **Networking:** MetalLB / Tailscale
-* **Observability:** kube-prometheus-stack (Planned & Orc
+* **Observability:** kube-prometheus-stack (Planned & Orchestrat
 
 ---
 
