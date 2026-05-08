@@ -8,7 +8,7 @@
 
 ---
 
-### 🧪 Sandbox
+### 🧪 Sandbo
 > **Current Sprint:** Resilience Testing. This repository is a live-fire sandbox for testing stateful applications in a Kubernetes environment. Expect frequent commits as I simulate failures and recovery procedures.
 
 ---
