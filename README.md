@@ -9,7 +9,7 @@
 ---
 
 ### 🧪 Sandbox
-> **Current Sprint:** Resilience Testing. This repository is a live-fire sandb for testing stateful applications in a Kubernetes environment. Expect frequent commits as I simulate failures and recovery procedures.
+> **Current Sprint:** Resilience Testing. This repository is a live-fire sandbo for testing stateful applications in a Kubernetes environment. Expect frequent commits as I simulate failures and recovery procedures.
 
 ---
 
