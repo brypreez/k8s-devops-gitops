@@ -9,12 +9,12 @@
 ---
 
 ### 🧪 Sandbox
-> **Current Sprint:** Resilience Testing. This repository is a live-fire sandbox for testing stateful applications in a Kubernetes environment. Expect frequent commits as I simulate failures and recovery procedures.
+> **Current Sprint:** Resilience Testing. This repository is a live-fire sandbox for testing stateful applications in a Kubernetes environment. Expect frequent commits as failures and recovery procedures will be simulated.
 
 ---
 
 ### 🏗 Infrastructure Architecture
-This cluster is architected for physical fault tolerance, utilizing a 3-node HA control plane hosted on Proxmox VE.
+This cluster is architected for physical fault tolerance, utilizing a 3-node HA control plane hosted on Proxmox VE. 
 
 | Layer | Component | Specification |
 | :--- | :--- | :--- |
@@ -78,7 +78,7 @@ I utilize a cross-platform workflow to manage the cluster from anywhere, ensurin
 ### 🌐 Infrastructure Ecosystem
 This repository is part of a wider private cloud architecture. Cross-project dependencies and global configurations are managed across the following repositories:
 
-| Repository | Focus | Connection to this Lab |
+| Repository | Focus | Connection to this Lab | 
 | :--- | :--- | :--- |
 | **[homelab](https://github.com/brypreez/homelab)** | **Primary Portfolio** | The "Production" environment and source of truth for global Ansible/Terraform modules. |
 | **[Security-Sentinel](https://github.com/brypreez/Security-Sentinel)** | **Blue Team / SIEM** | Orchestrates the Wazuh/XDR agents that monitor this cluster's control plane. |
