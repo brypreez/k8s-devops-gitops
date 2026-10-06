@@ -4,7 +4,7 @@
 ![Infrastructure](https://img.shields.io/badge/Infrastructure-Proxmox-orange?style=flat&logo=proxmox)
 ![Storage](https://img.shields.io/badge/Storage-Longhorn-brightgreen?style=flat&logo=linux)
 
-**Infrastructure & Platfo Engineering — GitOps Testing & Storage Resilience**
+**Infrastructure & Platfor Engineering — GitOps Testing & Storage Resilience**
 
 ---
 
