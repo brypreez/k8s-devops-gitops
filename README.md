@@ -84,3 +84,4 @@ This repository is part of a wider private cloud architecture. Cross-project dep
 | **[Security-Sentinel](https://github.com/brypreez/Security-Sentinel)** | **Blue Team / SIEM** | Orchestrates the Wazuh/XDR agents that monitor this cluster's control plane. |
 
 ---
+
