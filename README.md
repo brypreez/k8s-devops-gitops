@@ -14,7 +14,7 @@
 ---
 
 ### 🏗 Infrastructure Architecture
-This cluster is architected for physical fault tolerance, utilizing a 3-node HA control plane hosted on Proxmox VE. 
+This cluster is architected for physica fault tolerance, utilizing a 3-node HA control plane hosted on Proxmox VE. 
 
 | Layer | Component | Specification |
 | :--- | :--- | :--- |
